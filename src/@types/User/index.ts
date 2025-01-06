@@ -2,11 +2,12 @@ interface User {
   id: string;
   name: string;
   email: string;
+  token: string;
 }
-interface CreateUserDTO extends Omit<User, "id"> {
+interface CreateUserDTO extends Pick<User, "email" | "name"> {
   password: string;
 }
-interface AuthUserDTO extends Omit<User, "id" | "name"> {
+interface AuthUserDTO extends Pick<User, "email"> {
   password: string;
 }
 

@@ -36,24 +36,6 @@
   margin-bottom: 1rem;
   color: #181c2e;
 }
-.login input {
-  margin-bottom: 1rem;
-  height: 35px;
-  border-radius: 4px;
-  border: 0;
-  padding: 10px;
-  font-size: 15px;
-  background-color: #ffffff;
-}
-.login form button {
-  height: 35px;
-  border: 0;
-  border-radius: 4px;
-  background-color: #181c2e;
-  color: #ffffff;
-  font-size: 1.3rem;
-}
-
 .login a {
   margin: 1.5rem 0;
   color: #000000;
