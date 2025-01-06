@@ -3,11 +3,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #121212;
+  background-color: var(--background-dark);
   padding: 0 12px;
 }
 .login {
-  background-color: #eaeaec;
+  background-color: var(--shape);
   width: 600px;
   display: flex;
   align-items: center;
@@ -15,7 +15,7 @@
   flex-direction: column;
 }
 .login-area {
-  background-color: #181c2e;
+  background-color: var(--primary);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -34,10 +34,10 @@
 .login form h1 {
   text-align: center;
   margin-bottom: 1rem;
-  color: #181c2e;
+  color: var(--primary);
 }
 .login a {
   margin: 1.5rem 0;
-  color: #000000;
+  color: var(--text);
   cursor: pointer;
 }
