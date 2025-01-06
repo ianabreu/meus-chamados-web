@@ -1,0 +1,13 @@
+.defaultButton {
+  height: 35px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #181c2e;
+  color: #ffffff;
+  font-size: 1.3rem;
+}
+.defaultButton[disabled] {
+  background-color: #cacaca;
+  color: #5f5f5f;
+  cursor: not-allowed;
+}
