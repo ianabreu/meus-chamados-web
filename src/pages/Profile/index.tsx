@@ -1,15 +1,14 @@
 import { Button } from "../../components/Button";
 import { useAuthStore } from "../../store/auth";
 
-export default function Dashboard() {
+export default function Profile() {
   const { signOut } = useAuthStore();
   function handleLogout() {
     signOut();
   }
-
   return (
     <div>
-      <Button onClick={handleLogout}>Sair</Button>
+      <Button onClick={handleLogout}>Sair Profile</Button>
     </div>
   );
 }
