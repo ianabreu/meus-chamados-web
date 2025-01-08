@@ -2,7 +2,7 @@ interface User {
   id: string;
   name: string;
   email: string;
-  token: string;
+  avatar_url: string | null;
 }
 interface CreateUserDTO extends Pick<User, "email" | "name"> {
   password: string;
