@@ -17,7 +17,7 @@ type AuthStore = {
 export const useAuthStore = create<AuthStore>()((set) => ({
   user: null,
   signed: false,
-  loadingAuth: false,
+  loadingAuth: true,
   signUp: async (credentials) => {
     set({ loadingAuth: true });
     try {
@@ -56,9 +56,9 @@ export const useAuthStore = create<AuthStore>()((set) => ({
   },
   checkAuth: async () => {
     const token = localStorage.getItem("@access_token");
+    set({ loadingAuth: true });
     if (token) {
       try {
-        set({ loadingAuth: true });
         const response = await api.get("/me", {
           headers: { Authorization: `Bearer ${token}` },
         });
@@ -71,5 +71,6 @@ export const useAuthStore = create<AuthStore>()((set) => ({
         api.defaults.headers.common["Authorization"] = undefined;
       }
     }
+    set({ loadingAuth: false });
   },
 }));

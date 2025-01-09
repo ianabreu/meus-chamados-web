@@ -49,6 +49,7 @@ export function RoutesApp() {
           </Private>
         }
       />
+      <Route path={"*"} element={<div>Not found</div>} />
     </Routes>
   );
 }

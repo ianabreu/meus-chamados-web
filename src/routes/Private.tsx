@@ -15,7 +15,7 @@ const pathNames: { [key: string]: string } = {
   "/customers": "Clientes",
 };
 export default function Private({ children }: PrivateProps) {
-  const { signed } = useAuthStore();
+  const { signed, loadingAuth } = useAuthStore();
   const { pathname } = useLocation();
 
   const pageTitle = pathNames[pathname];
@@ -26,21 +26,28 @@ export default function Private({ children }: PrivateProps) {
 
   const publicRoutes = ["/", "/register"];
 
-  if (!signed && publicRoutes.includes(pathname)) {
-    return children;
+  if (loadingAuth) {
+    return null;
+  } else {
+    if (!signed) {
+      if (publicRoutes.includes(pathname)) {
+        return children;
+      } else {
+        return <Navigate to={"/"} replace={true} />;
+      }
+    } else {
+      if (publicRoutes.includes(pathname)) {
+        return <Navigate to={"/dashboard"} replace={true} />;
+      } else {
+        return (
+          <div className="container">
+            <div className="sidebar">
+              <Header />
+            </div>
+            <main className="content">{children}</main>
+          </div>
+        );
+      }
+    }
   }
-  if (!signed && !publicRoutes.includes(pathname)) {
-    return <Navigate to={"/"} replace={true} />;
-  }
-  if (signed && publicRoutes.includes(pathname)) {
-    return <Navigate to={"/dashboard"} replace={true} />;
-  }
-  return (
-    <div className="container">
-      <div className="sidebar">
-        <Header />
-      </div>
-      <main className="content">{children}</main>
-    </div>
-  );
 }
