@@ -1,14 +1,15 @@
-import { Button } from "../../components/Button";
-import { useAuthStore } from "../../store/auth";
+import { FiSettings } from "react-icons/fi";
+import Title from "../../components/Title";
+// import { useAuthStore } from "../../store/auth";
 
 export default function Profile() {
-  const { signOut } = useAuthStore();
-  function handleLogout() {
-    signOut();
-  }
+  // const { signOut } = useAuthStore();
+  // function handleLogout() {
+  //   signOut();
+  // }
   return (
     <div>
-      <Button onClick={handleLogout}>Sair Profile</Button>
+      <Title icon={<FiSettings size={25} />}>Meu Perfil</Title>
     </div>
   );
 }
