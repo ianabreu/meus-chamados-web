@@ -5,9 +5,13 @@
   background-color: var(--primary);
   color: var(--text-inverse);
   font-size: 1.3rem;
+  transition: filter 300ms ease-in-out;
 }
 .defaultButton[disabled] {
   background-color: var(--disabled-bg);
   color: var(--disabled-text);
   cursor: not-allowed;
+}
+.defaultButton:hover {
+  filter: opacity(0.9);
 }

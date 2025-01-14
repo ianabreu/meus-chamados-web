@@ -23,7 +23,7 @@ export default function Header() {
     <div className="sidebar">
       <div className="sidebar-image-area">
         <img
-          src={user?.avatar_url === null ? avatarPNG : user?.avatar_url}
+          src={user?.avatarUrl === null ? avatarPNG : user?.avatarUrl}
           alt="Foto do Usuário"
         />
       </div>

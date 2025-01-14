@@ -21,17 +21,17 @@ const userServices = {
       const {
         id,
         name,
-        avatar_url,
+        avatarUrl,
         token,
         email: emailResponse,
       } = response.data as {
         id: string;
         name: string;
         email: string;
-        avatar_url: string;
+        avatarUrl: string;
         token: string;
       };
-      return { user: { id, email: emailResponse, name, avatar_url }, token };
+      return { user: { id, email: emailResponse, name, avatarUrl }, token };
     } catch (error) {
       throw error;
     }
