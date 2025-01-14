@@ -1,6 +1,6 @@
 .sidebar {
   background-color: var(--primary);
-  overflow: auto;
+  overflow: hidden;
 }
 .sidebar-image-area {
   background: url("../../assets/cover.png");
@@ -46,15 +46,16 @@
 .menu {
   display: none;
 }
-.menu-area {
+.menu-toggle {
   display: none;
 }
 
 @media screen and (max-width: 700px) {
-  .sidebars {
+  .sidebar {
     width: 100%;
-    height: auto;
-    position: relative;
+    min-height: max-content;
+    position: sticky;
+    top: 0;
   }
   .sidebar-link {
     float: left;
@@ -66,9 +67,10 @@
     display: none;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 420px) {
   .sidebar {
     overflow: hidden;
+    z-index: 100;
   }
   .sidebar-link {
     float: none;
@@ -77,27 +79,23 @@
   .sidebar-link svg {
     display: none;
   }
-  .menu-area {
-    display: flex;
-    justify-content: end;
-    align-items: center;
+  .menu-toggle {
+    display: block;
+    text-align: end;
+    padding: 0.5rem 0;
   }
   .menu-btn {
-    padding: 8px;
-    margin-right: 16px;
-    margin-top: 8px;
+    padding: 0.5rem;
+    margin-right: 1rem;
   }
   .menu-btn:hover {
     background-color: var(--background-dark);
     color: var(--text-inverse);
   }
   .menu-close {
-    max-height: 0;
-    transition: max-height 300ms ease-out;
+    display: none;
   }
-
   .menu-open {
-    max-height: 200px;
-    transition: max-height 300ms ease-out;
+    display: block;
   }
 }

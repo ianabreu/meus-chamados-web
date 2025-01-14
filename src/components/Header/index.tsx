@@ -12,7 +12,7 @@ export default function Header() {
   const [isOpen, setOpen] = useState(false);
   const { pathname } = useLocation();
   useEffect(() => {
-    if (window.innerWidth <= 400) {
+    if (window.innerWidth <= 420) {
       setOpen(false);
     }
   }, [pathname]);
@@ -27,7 +27,7 @@ export default function Header() {
           alt="Foto do Usuário"
         />
       </div>
-      <div className="menu-area">
+      <div className="menu-toggle">
         <Button className="menu-btn" onClick={toggleMenu}>
           <FiMenu color="#FFF" size={24} />
         </Button>

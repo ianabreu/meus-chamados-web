@@ -9,7 +9,7 @@ export default function HeaderLink({ to, children, ...rest }: HeaderLinkProps) {
   return (
     <Link
       to={to}
-      className={`sidebar-link ${to === pathname && "active"} `}
+      className={`sidebar-link ${to === pathname ? "active" : ""} `}
       {...rest}
     >
       {children}

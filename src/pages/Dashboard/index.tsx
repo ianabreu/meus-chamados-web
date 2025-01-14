@@ -8,8 +8,8 @@ export default function Dashboard() {
   }
 
   return (
-    <div>
+    <>
       <Button onClick={handleLogout}>Sair</Button>
-    </div>
+    </>
   );
 }

@@ -80,7 +80,7 @@ export default function Profile() {
   }
 
   return (
-    <main>
+    <>
       <Title icon={<FiSettings size={25} />}>Meu Perfil</Title>
       <form className="profile-area" onSubmit={handleSubmit}>
         <label htmlFor="avatar" className="label-avatar">
@@ -120,6 +120,6 @@ export default function Profile() {
           Sair
         </Button>
       </div>
-    </main>
+    </>
   );
 }
