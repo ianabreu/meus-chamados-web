@@ -33,19 +33,14 @@
   border-radius: 50%;
   object-fit: cover;
 }
-.profile-area label {
-  margin-bottom: 0.5rem;
-  font-size: 1.4rem;
-}
 .input-area {
   display: flex;
   flex-direction: column;
   max-width: 600px;
-}
-.input-area label {
-  margin-bottom: 0.5rem;
+  gap: 0.5rem;
   margin-top: 1rem;
 }
+
 .profile-area > button {
   background-color: transparent;
   border: 1px solid var(--primary);

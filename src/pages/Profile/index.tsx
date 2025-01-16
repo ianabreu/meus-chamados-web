@@ -106,10 +106,13 @@ export default function Profile() {
           )}
         </label>
         <div className="input-area">
-          <label htmlFor="">Nome</label>
-          <Input placeholder="Digite seu nome" ref={nameRef} />
-          <label htmlFor="">Email</label>
-          <Input placeholder="" ref={emailRef} disabled />
+          <Input
+            label="Nome"
+            placeholder="Digite seu nome"
+            id="name"
+            ref={nameRef}
+          />
+          <Input label="Email" id="email" ref={emailRef} disabled />
           <Button type="submit" loading={loading}>
             Salvar
           </Button>
