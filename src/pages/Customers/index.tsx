@@ -10,6 +10,8 @@ import { createCustomerSchema } from "../../schemas/Customer/createCustomerSchem
 import { customerServices } from "../../services/customerServices";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import Section from "../../components/Section";
+import "./styles-customers.css";
 
 export default function Customers() {
   const {
@@ -51,8 +53,11 @@ export default function Customers() {
   return (
     <>
       <Title icon={<FiUser size={25} />}>Clientes</Title>
-      <form className="profile-area" onSubmit={handleSubmit(onSubmit)}>
-        <div className="input-area">
+      <Section>
+        <form
+          className="customers-form-content"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <Input
             label="Razão Social"
             placeholder="Digite o nome do cliente"
@@ -85,8 +90,8 @@ export default function Customers() {
           <Button type="submit" loading={loading}>
             Cadastrar
           </Button>
-        </div>
-      </form>
+        </form>
+      </Section>
     </>
   );
 }

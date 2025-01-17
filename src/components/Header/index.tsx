@@ -20,7 +20,7 @@ export default function Header() {
     setOpen(!isOpen);
   }
   return (
-    <div className="sidebar">
+    <aside className="sidebar">
       <div className="sidebar-image-area">
         <img
           src={user?.avatarUrl === null ? avatarPNG : user?.avatarUrl}
@@ -46,6 +46,6 @@ export default function Header() {
           Perfil
         </HeaderLink>
       </nav>
-    </div>
+    </aside>
   );
 }

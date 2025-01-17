@@ -8,6 +8,7 @@ import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { api } from "../../services/apiConfig";
 import toast from "react-hot-toast";
+import Section from "../../components/Section";
 
 export default function Profile() {
   const { user, signOut, checkAuth } = useAuthStore();
@@ -82,30 +83,30 @@ export default function Profile() {
   return (
     <>
       <Title icon={<FiSettings size={25} />}>Meu Perfil</Title>
-      <form className="profile-area" onSubmit={handleSubmit}>
-        <label htmlFor="avatar" className="label-avatar">
-          <span>
-            <FiUpload color="#FFF" />
-          </span>
-          <input
-            type="file"
-            accept="image/jpeg,image/jpg,image/png"
-            name="avatar"
-            id="avatar"
-            onChange={handleFile}
-          />
-          {avatarUrl === null ? (
-            <img src={avatar} alt="Foto de perfil" width={250} height={250} />
-          ) : (
-            <img
-              src={avatarUrl}
-              alt="Foto de perfil"
-              width={250}
-              height={250}
+      <Section>
+        <form className="profile-form-content" onSubmit={handleSubmit}>
+          <label htmlFor="avatar" className="label-avatar">
+            <span>
+              <FiUpload color="#FFF" />
+            </span>
+            <input
+              type="file"
+              accept="image/jpeg,image/jpg,image/png"
+              name="avatar"
+              id="avatar"
+              onChange={handleFile}
             />
-          )}
-        </label>
-        <div className="input-area">
+            {avatarUrl === null ? (
+              <img src={avatar} alt="Foto de perfil" width={250} height={250} />
+            ) : (
+              <img
+                src={avatarUrl}
+                alt="Foto de perfil"
+                width={250}
+                height={250}
+              />
+            )}
+          </label>
           <Input
             label="Nome"
             placeholder="Digite seu nome"
@@ -116,13 +117,13 @@ export default function Profile() {
           <Button type="submit" loading={loading}>
             Salvar
           </Button>
-        </div>
-      </form>
-      <div className="profile-area">
-        <Button type="button" onClick={handleLogout}>
+        </form>
+      </Section>
+      <Section>
+        <Button variant="outline" type="button" onClick={handleLogout}>
           Sair
         </Button>
-      </div>
+      </Section>
     </>
   );
 }

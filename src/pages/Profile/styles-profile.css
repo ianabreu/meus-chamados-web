@@ -1,10 +1,8 @@
-.profile-area {
-  background-color: var(--content);
-  border-radius: 0.5rem;
-  padding: 0.8rem;
-  margin-bottom: 1rem;
-  filter: drop-shadow(1px 1px 1px #adadad);
-  -webkit-filter: drop-shadow(1px 1px 1px #adadad);
+.profile-form-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  gap: 1rem;
 }
 .label-avatar {
   max-width: fit-content;
@@ -29,29 +27,7 @@
   transform: scale(1.4);
 }
 
-.profile-area img {
+.label-avatar img {
   border-radius: 50%;
   object-fit: cover;
-}
-.input-area {
-  display: flex;
-  flex-direction: column;
-  max-width: 600px;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-
-.profile-area > button {
-  background-color: transparent;
-  border: 1px solid var(--primary);
-  color: var(--primary);
-  padding: 8px 20px;
-  transition: all 300ms ease-in-out;
-}
-.profile-area > button:hover {
-  background-color: var(--primary);
-  border: 1px solid var(--primary);
-  color: var(--text-inverse);
-  padding: 8px 20px;
-  filter: opacity(1);
 }
