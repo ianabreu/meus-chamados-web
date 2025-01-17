@@ -1,0 +1,8 @@
+.content-section {
+  background-color: var(--content);
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(1px 1px 1px #adadad);
+  -webkit-filter: drop-shadow(1px 1px 1px #adadad);
+}
