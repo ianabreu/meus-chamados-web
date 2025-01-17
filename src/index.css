@@ -8,6 +8,7 @@
 
   --primary: #181c2e;
   --accent: #2a3152;
+  --secondary: #83bf02;
 
   --text: #000000;
   --text-inverse: #ffffff;
@@ -26,8 +27,10 @@ body,
   height: 100%;
 }
 body {
-  font-family: sans-serif;
-  font: 14px;
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
   background-color: var(--background);
 }
 a {
