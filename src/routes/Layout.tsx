@@ -2,9 +2,9 @@ import { Navigate, useLocation } from "react-router-dom";
 import { useAuthStore } from "../store/auth";
 import { ReactNode, useEffect } from "react";
 import Header from "../components/Header";
-import "./styles-private.css";
+import "./layout.css";
 
-interface PrivateProps {
+interface LayoutProps {
   children: ReactNode;
 }
 const pathNames: { [key: string]: string } = {
@@ -14,7 +14,7 @@ const pathNames: { [key: string]: string } = {
   "/profile": "Perfil",
   "/customers": "Clientes",
 };
-export default function Private({ children }: PrivateProps) {
+export default function Layout({ children }: LayoutProps) {
   const { signed, loadingAuth } = useAuthStore();
   const { pathname } = useLocation();
 
@@ -41,9 +41,7 @@ export default function Private({ children }: PrivateProps) {
       } else {
         return (
           <div className="container">
-            <div className="sidebar">
-              <Header />
-            </div>
+            <Header />
             <main className="content">{children}</main>
           </div>
         );

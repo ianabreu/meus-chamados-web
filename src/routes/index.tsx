@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
 import Dashboard from "../pages/Dashboard";
-import Private from "./Private";
+import Layout from "./Layout";
 import Customers from "../pages/Customers";
 import Profile from "../pages/Profile";
 
@@ -12,41 +12,41 @@ export function RoutesApp() {
       <Route
         path={"/"}
         element={
-          <Private>
+          <Layout>
             <SignIn />
-          </Private>
+          </Layout>
         }
       />
       <Route
         path={"/register"}
         element={
-          <Private>
+          <Layout>
             <SignUp />
-          </Private>
+          </Layout>
         }
       />
       <Route
         path={"/dashboard"}
         element={
-          <Private>
+          <Layout>
             <Dashboard />
-          </Private>
+          </Layout>
         }
       />
       <Route
         path={"/customers"}
         element={
-          <Private>
+          <Layout>
             <Customers />
-          </Private>
+          </Layout>
         }
       />
       <Route
         path={"/profile"}
         element={
-          <Private>
+          <Layout>
             <Profile />
-          </Private>
+          </Layout>
         }
       />
       <Route path={"*"} element={<div>Not found</div>} />
