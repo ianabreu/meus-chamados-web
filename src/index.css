@@ -40,5 +40,6 @@ ul {
   list-style: none;
 }
 button {
+  font-family: "Poppins", serif;
   cursor: pointer;
 }

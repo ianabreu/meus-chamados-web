@@ -33,17 +33,17 @@
   outline: 0;
 }
 .defaultInput.error {
-  color: red;
-  border: 1px solid red;
+  color: brown;
+  border: 1px solid brown;
   outline: invert;
 }
 .defaultInput.error::placeholder {
-  color: red;
+  color: brown;
   opacity: 0.7;
 }
 
 .text-error {
-  color: red;
+  color: brown;
   margin-top: 2px;
   font-size: 12px;
 }

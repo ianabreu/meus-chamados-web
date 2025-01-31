@@ -2,6 +2,8 @@
   background-color: var(--primary);
   overflow: hidden;
   min-height: 100vh;
+  position: sticky;
+  top: 0;
 }
 .sidebar-image-area {
   background: url("../../assets/cover.png");
