@@ -1,0 +1,100 @@
+.pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.pagination-nav {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+.pagination-button > svg {
+  vertical-align: middle;
+  font-size: 1rem;
+}
+.pagination-button {
+  color: var(--text);
+  background-color: var(--input);
+  border-radius: 0.25rem;
+  border: 1px solid #ccc;
+  transition: all 300ms ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.5rem;
+}
+.pagination-button.number {
+  font-size: 1rem;
+  padding: 0 0.75rem;
+}
+.pagination-button:hover {
+  color: var(--text-inverse);
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+}
+.pagination-button.number.active {
+  color: var(--text-inverse);
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+}
+.toggle {
+  background-color: var(--input);
+  color: var(--text);
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  font-size: 1.2rem;
+  transition: all 300ms ease-in-out;
+}
+
+.toggle > svg {
+  margin: 0 0.35rem;
+  vertical-align: middle;
+}
+
+.toggle:hover {
+  background-color: var(--primary);
+  color: var(--text-inverse);
+  border: 1px solid var(--primary);
+}
+.left,
+.right {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.left div {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+@media screen and (max-width: 930px) {
+  .pagination-container {
+    flex-direction: column;
+  }
+
+  .pagination-nav.left {
+    order: 2;
+  }
+  .pagination-nav.center {
+    flex: 1;
+    order: 1;
+  }
+  .pagination-nav.right {
+    order: 3;
+  }
+}
+
+.filter-label {
+  font-size: 0.75rem;
+}
+.pagination-nav select {
+  height: auto;
+  background-color: var(--input);
+  border-radius: 0.25rem;
+  border: 1px solid #ccc;
+  padding: 0.25rem;
+}
