@@ -1,0 +1,41 @@
+.new-form {
+  max-width: 600px;
+  width: 100%;
+}
+.status-label {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  max-width: fit-content;
+}
+.status-area {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  gap: 0.5rem;
+}
+.status-input-area {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.status-input {
+  cursor: pointer;
+}
+.status-text {
+  user-select: none;
+  font-size: 1rem;
+}
+.complement-area {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.complement-area textarea {
+  font-family: "Poppins", sans-serif;
+  resize: none;
+  height: 105px;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+}
