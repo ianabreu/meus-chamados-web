@@ -8,6 +8,7 @@ import NewCalling from "../../components/NewCalling";
 import { useTicketStore } from "../../store/tickets";
 import Pagination from "../../components/Pagination";
 import { Loading } from "../../components/Loading";
+import { Badge } from "../../components/Badge";
 
 export default function Dashboard() {
   const [isOpen, setOpen] = useState(false);
@@ -74,12 +75,17 @@ export default function Dashboard() {
                       <td data-label="CNPJ">{item.customer.cnpj}</td>
                       <td data-label="Assunto">{item.topic}</td>
                       <td data-label="Status">
-                        <span
-                          className="badge"
-                          style={{ backgroundColor: "#999" }}
+                        <Badge
+                          action={
+                            item.status === "Aberto"
+                              ? "success"
+                              : item.status === "Progresso"
+                              ? "warning"
+                              : "default"
+                          }
                         >
                           {item.status}
-                        </span>
+                        </Badge>
                       </td>
                       <td data-label="Cadastro">
                         {new Date(item.created_at).toLocaleDateString()}

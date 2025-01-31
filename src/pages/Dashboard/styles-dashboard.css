@@ -68,11 +68,6 @@ table td .action svg {
   vertical-align: middle;
   color: var(--text-inverse);
 }
-table td .badge {
-  padding: 0.3rem;
-  border-radius: 0.25rem;
-  color: var(--text-inverse);
-}
 .empty {
   display: flex;
   flex-direction: column;
