@@ -1,0 +1,38 @@
+.select-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 450px;
+}
+.select-label {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  max-width: fit-content;
+}
+.select-area {
+  font-size: 1rem;
+  padding: 0.53rem 1rem;
+  border: 1px solid #ccc;
+  background-color: var(--input);
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+.select-area:focus {
+  border-color: var(--primary);
+}
+.select-option {
+  font-size: 1rem;
+  color: var(--text);
+}
+.select-option:disabled {
+  color: gray;
+}
+.error {
+  color: brown;
+  font-size: 0.75rem;
+}
+.container-error {
+  border-color: brown;
+  color: brown;
+}
