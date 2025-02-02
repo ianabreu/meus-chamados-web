@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { createTicketDTO, Ticket } from "../@types/Ticket";
+import { createTicketDTO, Ticket, updateTicketDTO } from "../@types/Ticket";
 import { Pagination, queryParamsProps } from "../@types/Pagination";
 import { ticketServices } from "../services/ticketServices";
 import toast from "react-hot-toast";
@@ -11,7 +11,7 @@ type TicketsStore = {
   error: string | null;
   fetchTickets: () => Promise<void>;
   addTicket: (ticket: createTicketDTO) => Promise<void>;
-  updateTicket: (updatedTicket: Ticket) => void;
+  updateTicket: (updatedData: updateTicketDTO) => Promise<void>;
   removeTicket: (ticketId: string) => void;
   goToPage: (page: number) => Promise<void>;
   nextPage: () => Promise<void>;
@@ -123,12 +123,18 @@ export const useTicketStore = create<TicketsStore>()((set, get) => ({
     fetchTickets();
   },
 
-  updateTicket: (updatedTicket: Ticket) => {
-    set((state) => ({
-      tickets: state.tickets.map((ticket) =>
-        ticket.id === updatedTicket.id ? updatedTicket : ticket
-      ),
-    }));
+  updateTicket: async (updatedData: updateTicketDTO) => {
+    await ticketServices
+      .update(updatedData)
+      .then(() => {
+        toast.success("Atualizado com sucesso!");
+      })
+      .catch((e) => {
+        console.log(e);
+        toast.error("Erro ao tentar atualizar!");
+      });
+    const { fetchTickets } = get();
+    fetchTickets();
   },
   removeTicket: (ticketId: string) => {
     set((state) => ({

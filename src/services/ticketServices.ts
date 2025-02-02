@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-catch */
 import { PaginationResult, queryParamsProps } from "../@types/Pagination";
-import { createTicketDTO, Ticket } from "../@types/Ticket";
+import { createTicketDTO, Ticket, updateTicketDTO } from "../@types/Ticket";
 import { api } from "./apiConfig";
 
 const ticketServices = {
@@ -25,6 +25,14 @@ const ticketServices = {
   async getById(ticketId: string): Promise<Ticket> {
     try {
       const response = await api.get(`/tickets/${ticketId}`);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
+  async update(data: updateTicketDTO) {
+    try {
+      const response = await api.put(`/tickets/${data.id}`, { ...data });
       return response.data;
     } catch (error) {
       throw error;

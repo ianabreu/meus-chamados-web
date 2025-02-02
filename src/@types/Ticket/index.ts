@@ -6,6 +6,7 @@ export type createTicketDTO = {
   status: string;
   topic: string;
 };
+export type updateTicketDTO = Partial<createTicketDTO> & { id: string };
 
 export interface Ticket {
   id: string;

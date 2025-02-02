@@ -12,10 +12,20 @@ import { Badge } from "../../components/Badge";
 
 export default function Dashboard() {
   const [isOpen, setOpen] = useState(false);
+  const [editId, setEditId] = useState<string | null>(null);
   const { tickets, isLoading, filters, setFilters, goToPage, pagination } =
     useTicketStore();
 
+  function openModal() {
+    setEditId(null);
+    setOpen(true);
+  }
+  function editTicket(ticketId: string) {
+    setEditId(ticketId);
+    setOpen(true);
+  }
   function closeModal() {
+    setEditId(null);
     setOpen(false);
   }
 
@@ -28,12 +38,7 @@ export default function Dashboard() {
         <Section>
           <div className="empty">
             <span>Nenhum atendimento registrado...</span>
-            <button
-              onClick={() => {
-                setOpen(true);
-              }}
-              className="dashboard-new-btn"
-            >
+            <button onClick={openModal} className="dashboard-new-btn">
               <FiPlus size={25} /> Novo Atendimento
             </button>
           </div>
@@ -41,12 +46,7 @@ export default function Dashboard() {
       ) : (
         <>
           <div className="dashboard-new-area">
-            <button
-              onClick={() => {
-                setOpen(true);
-              }}
-              className="dashboard-new-btn"
-            >
+            <button onClick={openModal} className="dashboard-new-btn">
               <FiPlus size={25} /> Novo Atendimento
             </button>
           </div>
@@ -100,6 +100,7 @@ export default function Dashboard() {
                         <button
                           className="action"
                           style={{ backgroundColor: "#f6a935" }}
+                          onClick={() => editTicket(item.id)}
                         >
                           <FiEdit2 size={17} />
                         </button>
@@ -124,8 +125,13 @@ export default function Dashboard() {
               />
             </div>
           </Section>
-          <Modal isOpen={isOpen} title="Novo chamado" onClose={closeModal}>
-            <NewCalling onClose={closeModal} />
+
+          <Modal
+            isOpen={isOpen}
+            title={editId ? "Editar chamado" : "Novo chamado"}
+            onClose={closeModal}
+          >
+            <NewCalling onClose={closeModal} id={editId} />
           </Modal>
         </>
       )}

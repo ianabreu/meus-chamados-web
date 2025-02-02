@@ -1,22 +1,34 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { Button } from "../Button";
 import { Select } from "../Select";
 import "./styles-new-ticket.css";
-import { createTicketDTO, STATUS } from "../../@types/Ticket";
+import { createTicketDTO, STATUS, TOPIC } from "../../@types/Ticket";
 import { useTicketStore } from "../../store/tickets";
 import { customerServices } from "../../services/customerServices";
 import { Customer } from "../../@types/Customer";
-type TOPIC = "Suporte" | "Financeiro" | "Visita Técnica";
+import { ticketServices } from "../../services/ticketServices";
 
 interface ErrorMap {
   customer?: string;
   topic?: string;
 }
 interface NewTicketProps {
+  id: string | null;
   onClose: () => void;
 }
-export default function NewTicket({ onClose }: NewTicketProps) {
-  const { addTicket } = useTicketStore();
+export default function NewTicket({ onClose, id }: NewTicketProps) {
+  const { addTicket, updateTicket } = useTicketStore();
+  useEffect(() => {
+    if (id) {
+      ticketServices.getById(id).then((ticket) => {
+        setTopic(ticket.topic);
+        setStatus(ticket.status);
+        setComplement(ticket.complement || "");
+        setSelectedCustomerId(ticket.customer.id);
+        setInputValue(ticket.customer.tradeName);
+      });
+    }
+  }, [id]);
 
   const [inputValue, setInputValue] = useState("");
   const [filteredCustomers, setFilteredCustomers] = useState<Customer[]>([]);
@@ -60,7 +72,19 @@ export default function NewTicket({ onClose }: NewTicketProps) {
       status,
       customerId: selectedCustomerId,
     };
-    await addTicket(newTicket);
+    if (id) {
+      await updateTicket({
+        id,
+        complement,
+        customerId: selectedCustomerId,
+        status,
+        topic,
+      });
+    } else {
+      //criando novo
+      await addTicket(newTicket);
+    }
+
     onClose();
   }
 
@@ -182,7 +206,7 @@ export default function NewTicket({ onClose }: NewTicketProps) {
           onChange={(e) => setComplement(e.target.value)}
         />
       </div>
-      <Button type="submit">Registrar</Button>
+      <Button type="submit">{id ? "Editar" : "Salvar"}</Button>
     </form>
   );
 }
