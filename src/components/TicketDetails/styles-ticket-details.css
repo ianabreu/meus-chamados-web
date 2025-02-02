@@ -1,0 +1,44 @@
+.ticket-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.ticket-fieldset {
+  border: 1px solid var(--primary);
+  padding: 1rem;
+  border-radius: 0.25rem;
+  background-color: white;
+}
+.ticket-fieldset legend {
+  margin: 0.25rem;
+  padding: 0.125rem 0.5rem;
+  color: var(--text-inverse);
+  background-color: var(--primary);
+  border-radius: 0.25rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.ticket-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ticket-row .label {
+  font-weight: bold;
+  color: var(--text);
+}
+
+.ticket-row .value {
+  color: var(--text);
+  text-align: right;
+  word-break: break-word;
+  line-height: 150%;
+}
+.large-text {
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  align-items: flex-start;
+}

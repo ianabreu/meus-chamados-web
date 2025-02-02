@@ -64,6 +64,9 @@ table td .action {
   display: inline-block;
   margin-right: 0.25rem;
 }
+table td .action:hover {
+  filter: brightness(1.1);
+}
 table td .action svg {
   vertical-align: middle;
   color: var(--text-inverse);

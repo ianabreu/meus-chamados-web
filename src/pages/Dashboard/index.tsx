@@ -9,10 +9,14 @@ import { useTicketStore } from "../../store/tickets";
 import Pagination from "../../components/Pagination";
 import { Loading } from "../../components/Loading";
 import { Badge } from "../../components/Badge";
+import { Ticket } from "../../@types/Ticket";
+import TicketDetails from "../../components/TicketDetails";
 
 export default function Dashboard() {
   const [isOpen, setOpen] = useState(false);
+  const [openDetails, setOpenDetails] = useState(false);
   const [editId, setEditId] = useState<string | null>(null);
+  const [details, setDetails] = useState<Ticket | null>(null);
   const { tickets, isLoading, filters, setFilters, goToPage, pagination } =
     useTicketStore();
 
@@ -27,6 +31,14 @@ export default function Dashboard() {
   function closeModal() {
     setEditId(null);
     setOpen(false);
+  }
+  function closeDetails() {
+    setDetails(null);
+    setOpenDetails(false);
+  }
+  function handleOpenDetails(ticketDetails: Ticket) {
+    setDetails(ticketDetails);
+    setOpenDetails(true);
   }
 
   return (
@@ -94,6 +106,7 @@ export default function Dashboard() {
                         <button
                           className="action"
                           style={{ backgroundColor: "#3583f6" }}
+                          onClick={() => handleOpenDetails(item)}
                         >
                           <FiSearch size={17} />
                         </button>
@@ -133,6 +146,16 @@ export default function Dashboard() {
           >
             <NewCalling onClose={closeModal} id={editId} />
           </Modal>
+
+          {details && (
+            <Modal
+              isOpen={openDetails}
+              title={"Detalhes do chamado"}
+              onClose={closeDetails}
+            >
+              <TicketDetails ticket={details} />
+            </Modal>
+          )}
         </>
       )}
     </>
