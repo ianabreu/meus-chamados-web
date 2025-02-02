@@ -9,7 +9,7 @@ export type createTicketDTO = {
 
 export interface Ticket {
   id: string;
-  topic: string;
+  topic: TOPIC;
   complement?: string;
   status: STATUS;
   customerId: string;
@@ -20,3 +20,4 @@ export interface Ticket {
 }
 
 export type STATUS = "Aberto" | "Atendido" | "Progresso";
+export type TOPIC = "Suporte" | "Financeiro" | "Visita Técnica";
