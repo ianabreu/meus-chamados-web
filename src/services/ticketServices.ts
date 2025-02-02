@@ -22,6 +22,14 @@ const ticketServices = {
       throw error;
     }
   },
+  async getById(ticketId: string): Promise<Ticket> {
+    try {
+      const response = await api.get(`/tickets/${ticketId}`);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  },
 };
 
 export { ticketServices };
